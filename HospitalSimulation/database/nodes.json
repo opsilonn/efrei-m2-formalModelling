@@ -1,0 +1,130 @@
+[
+	{
+		"id": "nd-1",
+		"name": "Arriving",
+		"message": "arrives at the hospital",
+		"isEndingNode": true,
+		"idNodeTo": "nd-2",
+		"waitMin": 1000,
+		"waitMax": 2000
+	},
+	{
+		"id": "nd-2",
+		"name": "Waiting in line",
+		"message": "waits in the checking line",
+		"isStartingNode": true,
+		"idNodeTo": "nd-3",
+		"waitMin": 5000,
+		"waitMax": 10000
+	},
+	{
+		"id": "nd-3",
+		"name": "Checking resources",
+		"message": "checking if the hospital has enough resources",
+		"idNodeTo": "nd-4",
+		"waitMin": 2000,
+		"waitMax": 3000
+	},
+	{
+		"id": "nd-4",
+		"name": "Ressources checked",
+		"message": "the resources are checked !",
+		"idNodeTo": "nd-5",
+		"waitMin": 500,
+		"waitMax": 1000
+	},
+	{
+		"id": "nd-5",
+		"name": "Admitted",
+		"message": "is admitted to the hospital",
+		"idNodeTo": "nd-6",
+		"waitMin": 2000,
+		"waitMax": 4000
+	},
+	{
+		"id": "nd-6",
+		"name": "Waiting for form",
+		"message": "waits for the form to fill",
+		"idNodeTo": "nd-7",
+		"resourceTypesNeeded": [1]
+	},
+	{
+		"id": "nd-7",
+		"name": "Filling form",
+		"message": "is filling the form",
+		"idNodeTo": "nd-8",
+		"waitMin": 5000,
+		"waitMax": 10000
+	},
+	{
+		"id": "nd-8",
+		"name": "Form filled",
+		"message": "the form is filled !",
+		"idNodeTo": "nd-9",
+		"waitMin": 500,
+		"waitMax": 1000
+	},
+	{
+		"id": "nd-9",
+		"name": "Processing form",
+		"message": "the form is being processed",
+		"idNodeTo": "nd-10",
+		"waitMin": 75000,
+		"waitMax": 10000
+	},
+	{
+		"id": "nd-10",
+		"name": "Form processed",
+		"message": "the form has been processed !",
+		"idNodeTo": "nd-11",
+		"waitMin": 500,
+		"waitMax": 1000
+	},
+	{
+		"id": "nd-11",
+		"name": "Form finished",
+		"message": "the form protocol is finished !",
+		"idNodeTo": "nd-12",
+		"resourceTypesFreed": [1],
+		"waitMin": 500,
+		"waitMax": 1000
+	},
+	{
+		"id": "nd-12",
+		"name": "Waiting examination",
+		"message": "waits for examination",
+		"idNodeTo": "nd-13",
+		"resourceTypesNeeded": [0, 2]
+	},
+	{
+		"id": "nd-13",
+		"name": "Examination starts",
+		"message": "begins examination",
+		"idNodeTo": "nd-14",
+		"waitMin": 5000,
+		"waitMax": 15000
+	},
+	{
+		"id": "nd-14",
+		"name": "Examination ends",
+		"message": "ending examination",
+		"idNodeTo": "nd-15",
+		"resourceTypesFreed": [0, 2],
+		"waitMin": 1000,
+		"waitMax": 3000
+	},
+	{
+		"id": "nd-15",
+		"name": "Check-out",
+		"message": "checks out",
+		"idNodeTo": "nd-16",
+		"waitMin": 1000,
+		"waitMax": 3000
+	},
+	{
+		"id": "nd-16",
+		"name": "Leaving",
+		"message": "Leaving the hospital",
+		"isEndingNode": true
+	}
+]

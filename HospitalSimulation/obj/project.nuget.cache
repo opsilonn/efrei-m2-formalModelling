@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "a96yWpOmpMcbxY5yW7Pk5Y5g2JfUhHcSe0o65j+pJd6nBsRb6vsC6nTzGNz1I7wsQfgGi0MXRxFwtSTqrTljhg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hugue\\Desktop\\m2-formal-modelling\\HospitalSimulation\\HospitalSimulation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hugue\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
