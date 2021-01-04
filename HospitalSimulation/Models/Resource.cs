@@ -4,11 +4,11 @@ using System;
 
 namespace HospitalSimulation.Models
 {
-    public abstract class Resource
+    public class Resource
     {
-        private String _id;
-        private string _name;
-        private ResourceType _type;
+        public string id { get; set; }
+        public string name { get; set; }
+        public ResourceType type { get; set; }
 
 
 
@@ -19,9 +19,9 @@ namespace HospitalSimulation.Models
         /// </summary>
         public Resource()
         {
-            id = "-1";
+            id = "res-0";
             name = String.Empty;
-            role = ResourceType.Nurse;
+            type = ResourceType.Nurse;
         }
 
 
@@ -35,7 +35,7 @@ namespace HospitalSimulation.Models
         {
             this.id = id;
             this.name = name;
-            this.role = role;
+            this.type = role;
         }
 
 
@@ -44,7 +44,7 @@ namespace HospitalSimulation.Models
         /// Textual representation of the instance
         /// </summary>
         /// <returns> A textual representation of the instance</returns>
-        public override string ToString() => $"{id} - {name} : {role}";
+        public override string ToString() => $"{id} - {name} : {type}";
 
 
         // SERIALIZATION
@@ -68,12 +68,5 @@ namespace HospitalSimulation.Models
         {
             return JsonConvert.DeserializeObject<Resource>(json);
         }
-
-
-
-        // GETTER - SETTER
-        public String id { get => _id; set => _id = value; }
-        public string name { get => _name; set => _name = value; }
-        public ResourceType role { get => _type; set => _type = value; }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace HospitalSimulation.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace HospitalSimulation.Models
 {
     public enum ResourceType
     {
@@ -62,6 +66,16 @@
         public static string name(this ResourceType resourceType)
         {
             return resourceType.data().name;
+        }
+
+
+        /// <summary>
+        /// Returns an array of all the ResourceType
+        /// </summary>
+        /// <returns>An array of all the ResourceType</returns>
+        public static List<ResourceType> GetAllResourceTypes()
+        {
+            return Enum.GetValues(typeof(ResourceType)).Cast<ResourceType>().ToList();
         }
     }
 }

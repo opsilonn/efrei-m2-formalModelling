@@ -1,34 +1,35 @@
 {
 	"id": "hosp-01",
 	"name": "Hôpital européen Georges-Pompidou",
-	"rooms": [
-		{
-			"id": "room-01-01",
-			"name": "Operation block 1"
-		},
-		{
-			"id": "room-01-02",
-			"name": "Operation block 2"
-		},
-		{
-			"id": "room-01-03",
-			"name": "Intervention room 1"
-		}
-	],
-	"nurses": [
-		{
-			"id": "nurse-01-01",
-			"name": "Mary Shelley"
-		},
-		{
-			"id": "nurse-01-02",
-			"name": "Georges Sand"
-		}
-	],
-	"physician": [
-		{
-			"id": "phy-01-01",
-			"name": "Dr Jekyll"
-		}
-	]
+	"resources": {
+		"Room": [
+			{
+				"id": "room-01-01",
+				"name": "Operation block 1",
+				"type": 0
+			},
+			{
+				"id": "room-01-02",
+				"name": "Operation block 2",
+				"type": 0
+			},
+			{
+				"id": "room-01-03",
+				"name": "Intervention room 1",
+				"type": 0
+			}
+		],
+		"Nurse": [
+			{
+				"id": "nurse-01-01",
+				"name": "Mary Shelley",
+				"type": 1
+			},
+			{
+				"id": "nurse-01-02",
+				"name": "Georges Sand",
+				"type": 1
+			}
+		]
+	}
 }

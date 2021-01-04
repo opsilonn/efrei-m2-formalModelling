@@ -3,6 +3,7 @@
 
 namespace HospitalSimulation.Models
 {
+    [Serializable]
     public class Physician : Resource
     {
         // CONSTRUCTORS
@@ -19,7 +20,7 @@ namespace HospitalSimulation.Models
         /// </summary>
         /// <param name="id">Id of the Physician</param>
         /// <param name="name">Name of the Physician</param>
-        public Physician(String id, string name) : base(id, name, ResourceType.Physician)
+        public Physician(string id, string name) : base(id, name, ResourceType.Physician)
         { }
     }
 }

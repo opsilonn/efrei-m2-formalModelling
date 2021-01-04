@@ -11,13 +11,11 @@ namespace HospitalSimulation.Models
         public string id { get; set; }
         public string name { get; set; }
         public List<Patient> patients { get; set; }
-        public List<Room> rooms { get; set; }
-        public List<Nurse> nurses { get; set; }
-        public List<Physician> physicians { get; set; }
+        public Dictionary<ResourceType, List<Resource>> resources { get; set; }
+        [JsonIgnore]
+        public Dictionary<ResourceType, SemaphoreSlim> resourceSemaphores { get; set; }
 
-        public SemaphoreSlim semRooms { get; set; }
-        public SemaphoreSlim semNurses { get; set; }
-        public SemaphoreSlim semPhysicians { get; set; }
+
 
 
         // CONSTRUCTORS
@@ -27,15 +25,27 @@ namespace HospitalSimulation.Models
         /// </summary>
         public Hospital()
         {
-            id = "hos-0";
-            name = "default hospital";
+            id = null;
+            name = null;
             patients = new List<Patient>();
-            rooms = new List<Room>();
-            nurses = new List<Nurse>();
-            physicians = new List<Physician>();
-            semRooms = new SemaphoreSlim(rooms.Count);
-            semNurses = new SemaphoreSlim(nurses.Count);
-            semPhysicians = new SemaphoreSlim(physicians.Count);
+            resources = new Dictionary<ResourceType, List<Resource>>();
+            resourceSemaphores = new Dictionary<ResourceType, SemaphoreSlim>();
+
+            // We iterate through the ResourceTypes
+            ResourceTypeStuff.GetAllResourceTypes().ForEach(resourceType =>
+            {
+                // 1 - We create a row in resources (if it does not exist)
+                if (!resources.ContainsKey(resourceType))
+                {
+                    // Since it does not exist, we create the missing row
+                    resources.Add(resourceType, new List<Resource>());
+                }
+
+                // 2 - We fill the resourceSemaphores dictionary
+                // We get the number of resources to add
+                int cpt = resources[resourceType].Count;
+                resourceSemaphores.Add(resourceType, new SemaphoreSlim(cpt));
+            });
         }
 
 
@@ -45,20 +55,15 @@ namespace HospitalSimulation.Models
         /// <param name="id">Id of the instance</param>
         /// <param name="name">Name of the instance</param>
         /// <param name="patients">List of patients of the instance</param>
-        /// <param name="rooms">List of rooms of the instance</param>
-        /// <param name="nurses">List of nurses of the instance</param>
-        /// <param name="physicians">List of physicians of the instance</param>
-        public Hospital(string id, string name, List<Patient> patients, List<Room> rooms, List<Nurse> nurses, List<Physician> physicians)
+        /// <param name="resourceSemaphores">Resources of the instance</param>
+        /// <param name="resourceSemaphores">Semaphores of the Resources of the instance</param>
+        public Hospital(string id, string name, List<Patient> patients, Dictionary<ResourceType, List<Resource>> resources, Dictionary<ResourceType, SemaphoreSlim> resourceSemaphores)
         {
             this.id = id;
             this.name = name;
             this.patients = patients;
-            this.rooms = rooms;
-            this.nurses = nurses;
-            this.physicians = physicians;
-            semRooms = new SemaphoreSlim(rooms.Count);
-            semNurses = new SemaphoreSlim(nurses.Count);
-            semPhysicians = new SemaphoreSlim(physicians.Count);
+            this.resources = resources;
+            this.resourceSemaphores = resourceSemaphores;
         }
 
 
@@ -66,7 +71,7 @@ namespace HospitalSimulation.Models
         /// Textual representation of the instance
         /// </summary>
         /// <returns> A textual representation of the instance</returns>
-        public override string ToString() => $"{id} - {name} with {rooms.Count} rooms, {nurses.Count} nurses and {physicians.Count} physicians";
+        public override string ToString() => $"{id} - {name}";
 
 
         // SERIALIZATION
@@ -93,6 +98,14 @@ namespace HospitalSimulation.Models
 
 
 
+        [JsonIgnore]
+        public bool isComplete { get => id != null && name != null; }
+        [JsonIgnore]
+        public List<Resource> rooms { get => resources[ResourceType.Room]; }
+        [JsonIgnore]
+        public List<Resource> nurses { get => resources[ResourceType.Nurse]; }
+        [JsonIgnore]
+        public List<Resource> physicians { get => resources[ResourceType.Physician]; }
 
         /// <summary>
         /// Adds a patient to the list

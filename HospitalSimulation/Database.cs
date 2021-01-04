@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 
 namespace HospitalSimulation
@@ -55,8 +54,8 @@ namespace HospitalSimulation
 
             try
             {
-                // test
-                string[] filePaths = Directory.GetFiles(@"C:\Users\hugue\Desktop\m2-formal-modelling\HospitalSimulation\bin\Debug\netcoreapp3.1\database\hospitals");
+                // We get all the files in the hospital's folder
+                string[] filePaths = Directory.GetFiles(pathHospitalFolder, "hospital_*.json");
                 
                 // We iterate through the hospital's files
                 foreach (string path in filePaths)
@@ -67,14 +66,23 @@ namespace HospitalSimulation
                     // We convert the json in a Hospital instance
                     Hospital newHospital = Hospital.Deserialize(json);
 
-                    // We add it to the list
-                    hospitals.Add(newHospital);
+                    // If the Hospital instance is valid
+                    if (newHospital.isComplete)
+                    {
+                        // We add it to the list
+                        hospitals.Add(newHospital);
+                    }
+                    // else : error message
+                    else
+                    {
+                        CONSOLE.WriteLine(ConsoleColor.Red, "\nA hospital could not be read !");
+                    }
                 }
             }
             catch (Exception e)
             {
                 // We display the error
-                Console.WriteLine("Error when reading the hospitals");
+                CONSOLE.WriteLine(ConsoleColor.Red, "\nError when reading the hospitals !");
                 Console.WriteLine(e.StackTrace);
             }
 

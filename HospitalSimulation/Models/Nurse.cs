@@ -21,7 +21,7 @@ namespace HospitalSimulation.Models
         /// </summary>
         /// <param name="id">Id of the Nurse</param>
         /// <param name="name">Name of the Nurse</param>
-        public Nurse(String id, string name) : base(id, name, ResourceType.Nurse)
+        public Nurse(string id, string name) : base(id, name, ResourceType.Nurse)
         { }
     }
 }

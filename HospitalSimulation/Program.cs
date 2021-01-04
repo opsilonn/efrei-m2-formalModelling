@@ -1,8 +1,8 @@
 ﻿using HospitalSimulation.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+
 
 namespace HospitalSimulation
 {
@@ -15,20 +15,21 @@ namespace HospitalSimulation
         // List of hospitals
         public static List<Hospital> hospitals = new List<Hospital>();
 
-        // List of resources semaphores
-        SemaphoreSlim semSharedRooms = new SemaphoreSlim(0);
-        SemaphoreSlim semSharedNurses = new SemaphoreSlim(0);
-        SemaphoreSlim semSharedPhysicians = new SemaphoreSlim(0);
+        // Threshold to which a hospital gives a resource
+        private static Dictionary<ResourceType, SemaphoreSlim> sharedSemaphores = new Dictionary<ResourceType, SemaphoreSlim>();
 
 
 
-
-
+        /// <summary>
+        /// Method to launch the application
+        /// </summary>
+        /// <param name="args">List of arguments given as parameters when launching the application</param>
         static void Main(string[] args)
         {
-            CONSOLE.WriteLine(ConsoleColor.Cyan, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-            CONSOLE.WriteLine(ConsoleColor.Cyan, "\t\t FORMAL MODELLING - Hospital Simulation");
-            CONSOLE.WriteLine(ConsoleColor.Cyan, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            // A small message
+            CONSOLE.WriteLine(COLOR_SIMULATION, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            CONSOLE.WriteLine(COLOR_SIMULATION, "\t\t FORMAL MODELLING - Hospital Simulation");
+            CONSOLE.WriteLine(COLOR_SIMULATION, "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 
 
             // STEP 1 - initialize the variables

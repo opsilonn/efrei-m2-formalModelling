@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 
 namespace HospitalSimulation.Models
@@ -21,7 +19,7 @@ namespace HospitalSimulation.Models
         /// </summary>
         /// <param name="id">Id of the Room</param>
         /// <param name="name">Name of the Room</param>
-        public Room(String id, string name) : base(id, name, ResourceType.Room)
+        public Room(string id, string name) : base(id, name, ResourceType.Room)
         { }
     }
 }
