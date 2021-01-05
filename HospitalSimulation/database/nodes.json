@@ -3,7 +3,8 @@
 		"id": "nd-1",
 		"name": "Arriving",
 		"message": "arrives at the hospital",
-		"isEndingNode": true,
+		"isStartingNode": true,
+		"resourceTypesNeeded": [ 0, 2 ],
 		"idNodeTo": "nd-2",
 		"waitMin": 1000,
 		"waitMax": 2000
@@ -12,7 +13,6 @@
 		"id": "nd-2",
 		"name": "Waiting in line",
 		"message": "waits in the checking line",
-		"isStartingNode": true,
 		"idNodeTo": "nd-3",
 		"waitMin": 5000,
 		"waitMax": 10000

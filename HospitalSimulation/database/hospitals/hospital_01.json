@@ -12,11 +12,6 @@
 				"id": "room-01-02",
 				"name": "Operation block 2",
 				"type": 0
-			},
-			{
-				"id": "room-01-03",
-				"name": "Intervention room 1",
-				"type": 0
 			}
 		],
 		"Nurse": [
@@ -24,11 +19,18 @@
 				"id": "nurse-01-01",
 				"name": "Mary Shelley",
 				"type": 1
+			}
+		],
+		"Physician": [
+			{
+				"id": "physician-01-01",
+				"name": "Dr Jekyll",
+				"type": 2
 			},
 			{
-				"id": "nurse-01-02",
-				"name": "Georges Sand",
-				"type": 1
+				"id": "physician-01-02",
+				"name": "Dr Watson",
+				"type": 2
 			}
 		]
 	}

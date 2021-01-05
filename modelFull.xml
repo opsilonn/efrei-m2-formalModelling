@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<romeo version="Romeo v3.8.2"> </romeo>
+<TPN name="C:/Users/hugue/Desktop/m2-formal-modelling/modelFull.xml">
+  <place id="1" identifier="waiting" label="waiting" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="601.0" y="121.0"/> 
+         <deltaLabel deltax="19.0" deltay="9.0"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="2" identifier="waitingForm" label="waitingForm" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="1"> 
+         <position x="751.0" y="391.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="3" identifier="ressourcesChecked" label="ressourcesChecked" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="601.0" y="301.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="4" identifier="formFilled" label="formFilled" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="1"> 
+         <position x="931.0" y="391.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="5" identifier="formTreated" label="formTreated" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="1"> 
+         <position x="1111.0" y="391.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="6" identifier="waitingExamination" label="waitingExamination" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1351.0" y="391.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="7" identifier="examination" label="examination" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1351.0" y="211.0"/> 
+         <deltaLabel deltax="34.0" deltay="7.0"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="8" identifier="checkOut" label="checkOut" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1351.0" y="31.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="9" identifier="roomAvailable" label="roomAvailable" initialMarking="01" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1021.0" y="121.0"/> 
+         <deltaLabel deltax="2.0" deltay="-31.0"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="10" identifier="physicianAvailable" label="physicianAvailable" initialMarking="2" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1021.0" y="211.0"/> 
+         <deltaLabel deltax="14.0" deltay="13.0"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="11" identifier="nurseAvailable" label="nurseAvailable" initialMarking="3" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1021.0" y="301.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="12" identifier="addRoom" label="addRoom" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1261.0" y="91.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="13" identifier="addPhysician" label="addPhysician" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1261.0" y="181.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="14" identifier="needPhysician" label="needPhysician" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1261.0" y="241.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="15" identifier="needRoom" label="needRoom" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1261.0" y="151.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="16" identifier="addNurse" label="addNurse" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="1201.0" y="331.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="17" identifier="needNurse" label="needNurse" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="0"> 
+         <position x="841.0" y="331.0"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <transition id="1" identifier="newPatient" label="newPatient"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="601.0" y="31.0"/> 
+        <deltaLabel deltax="30" deltay="3"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="2" identifier="checkingRessources" label="checkingRessources"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="601.0" y="211.0"/> 
+        <deltaLabel deltax="51.0" deltay="6.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="3" identifier="refused" label="refused"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="3"> 
+        <position x="511.0" y="301.0"/> 
+        <deltaLabel deltax="3.0" deltay="7.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="4" identifier="admitted" label="admitted"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="601.0" y="391.0"/> 
+        <deltaLabel deltax="5.0" deltay="5.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="5" identifier="fillingForm" label="fillingForm"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="2"> 
+        <position x="841.0" y="391.0"/> 
+        <deltaLabel deltax="7.0" deltay="11.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="6" identifier="formFinished" label="formFinished"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="2"> 
+        <position x="1201.0" y="391.0"/> 
+        <deltaLabel deltax="5.0" deltay="8.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="7" identifier="treatingForm" label="treatingForm"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="2"> 
+        <position x="1021.0" y="391.0"/> 
+        <deltaLabel deltax="7.0" deltay="9.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="8" identifier="examinationStart" label="examinationStart"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="5"> 
+        <position x="1351.0" y="301.0"/> 
+        <deltaLabel deltax="50.0" deltay="4.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="9" identifier="examinationEnd" label="examinationEnd"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="5"> 
+        <position x="1351.0" y="121.0"/> 
+        <deltaLabel deltax="51.0" deltay="-15.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="10" identifier="out" label="out"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="3"> 
+        <position x="1441.0" y="31.0"/> 
+        <deltaLabel deltax="25" deltay="0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="11" identifier="freeRoom" label="freeRoom"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="1141.0" y="91.0"/> 
+        <deltaLabel deltax="25" deltay="0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="12" identifier="freePhysician" label="freePhysician"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="1141.0" y="181.0"/> 
+        <deltaLabel deltax="9.0" deltay="7.0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="13" identifier="takeRoom" label="takeRoom"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="1141.0" y="151.0"/> 
+        <deltaLabel deltax="25" deltay="0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="14" identifier="takePhysician" label="takePhysician"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="1141.0" y="241.0"/> 
+        <deltaLabel deltax="14" deltay="10"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="15" identifier="freeNurse" label="freeNurse"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="1111.0" y="331.0"/> 
+        <deltaLabel deltax="25" deltay="0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <transition id="16" identifier="takeNurse" label="takeNurse"  eft="0" lft="inf" speed="1" cost="0" unctrl="0" obs="1"  guard=""> 
+     <graphics color="0"> 
+        <position x="931.0" y="331.0"/> 
+        <deltaLabel deltax="25" deltay="0"/> 
+        <deltaGuard deltax="20" deltay="-20"/> 
+        <deltaUpdate deltax="20" deltay="10"/> 
+        <deltaSpeed deltax="-20" deltay="5"/> 
+        <deltaCost deltax="-20" deltay="5"/> 
+     </graphics> 
+     <update><![CDATA[]]></update> 
+  </transition> 
+
+  <arc place="1" transition="1" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="1" transition="2" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="3" transition="2" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="3" transition="3" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="3" transition="4" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="2" transition="4" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="2" transition="5" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="17" transition="5" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="4" transition="5" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="5" transition="6" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="6" transition="6" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="16" transition="6" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="4" transition="7" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="5" transition="7" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="6" transition="8" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="14" transition="8" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="15" transition="8" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="7" transition="8" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="7" transition="9" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="8" transition="9" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="12" transition="9" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="13" transition="9" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="8" transition="10" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="12" transition="11" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="9" transition="11" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="13" transition="12" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="10" transition="12" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="9" transition="13" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="15" transition="13" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="10" transition="14" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="14" transition="14" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="16" transition="15" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="11" transition="15" type="TransitionPlace" weight="1"> 
+     <nail xnail="1084" ynail="305"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="11" transition="16" type="PlaceTransition" weight="1"  inhibitingCondition=""> 
+    <nail xnail="957" ynail="307"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="17" transition="16" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <timedCost></timedCost>
+
+  <declaration><![CDATA[// insert here the state variables declarations 
+// and possibly some code to initialize them 
+// using C-like syntax
+
+// insert here your type definitions using C-like syntax
+
+// insert here your function definitions 
+// using C-like syntax]]></declaration>
+
+  <project nbinput="0" openinput="0" nbinclude="0" >
+ </project>
+
+  <preferences> 
+      <colorPlace  c0="SkyBlue2"  c1="gray"  c2="cyan"  c3="green"  c4="yellow"  c5="brown" /> 
+ 
+      <colorTransition  c0="yellow"  c1="gray"  c2="cyan"  c3="green"  c4="SkyBlue2"  c5="brown" /> 
+ 
+      <colorArc  c0="black"  c1="gray"  c2="blue"  c3="#beb760"  c4="#be5c7e"  c5="#46be90" /> 
+ 
+  </preferences> 
+ </TPN> 
+

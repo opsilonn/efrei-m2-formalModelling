@@ -22,8 +22,9 @@ namespace HospitalSimulation
             // We fill the nodes list
             nodes = Database.ReadNodes();
 
-            // We fill the nodes list
+            // We fill the hospitals list
             hospitals = Database.ReadHospitals();
+            hospitals.ForEach(hospital => hospital.InitializeResources());
 
             // We fill the shared resources pool
             ResourceTypeStuff.GetAllResourceTypes().ForEach(resourceType => sharedSemaphores.Add(resourceType, new SemaphoreSlim(0)));
@@ -167,7 +168,7 @@ namespace HospitalSimulation
         public static void StartHospital(Hospital hospital)
         {
             // A small message
-            CONSOLE.WriteLine(ConsoleColor.Blue, $"hospital {hospital.id} - {hospital.name} has opened !");
+            CONSOLE.WriteLine(COLOR_HOSPITAL, $"hospital {hospital.id} - {hospital.name} has opened !");
 
             // Thread : patients arriving at the hospital
             // We create a thread
@@ -207,7 +208,7 @@ namespace HospitalSimulation
         private static async Task StartPatient(Hospital hospital, Patient patient)
         {
             // A small message
-            CONSOLE.WriteLine(ConsoleColor.Yellow, $"patient {patient.id}  - {patient.name} has entered the hospital {hospital.id} !");
+            CONSOLE.WriteLine(COLOR_PATIENT, $"patient {patient.id}  - {patient.name} has entered the hospital {hospital.id} !");
 
             // We declare the initial node
             Node node = initialNode;
@@ -236,22 +237,28 @@ namespace HospitalSimulation
                 // We check if a resource is needed
                 foreach(ResourceType resourceType in node.resourceTypesNeeded)
                 {
-                    // We wait for the semaphore to be activated
-                    await hospital.resourceSemaphores[resourceType].WaitAsync();
-
                     // If a resource should be taken
                     if (THRESHOLDS_TAKE[resourceType] >= hospital.resourceSemaphores[resourceType].CurrentCount)
                     {
                         // We create a thread
                         new Thread(async () =>
                         {
+                            // We show a message
+                            CONSOLE.WriteLine(COLOR_RESOURCE_TAKE, $"{hospital.id} - wants to take a resource : {resourceType}");
+
                             // We take a resource from the spare pool
-                            await hospital.resourceSemaphores[resourceType].WaitAsync();
+                            await sharedSemaphores[resourceType].WaitAsync();
 
                             // We add the resource to the hospital's pool
                             hospital.resourceSemaphores[resourceType].Release();
+
+                            // We show a confirm message
+                            CONSOLE.WriteLine(COLOR_RESOURCE_TAKE, $"{hospital.id} - resource {resourceType} has been taken !");
                         }).Start();
                     }
+
+                    // We wait for the semaphore to be activated
+                    await hospital.resourceSemaphores[resourceType].WaitAsync();
                 }
 
 
@@ -265,15 +272,24 @@ namespace HospitalSimulation
                     // If a resource can be spared
                     if (THRESHOLDS_GIVE[resourceType] <= hospital.resourceSemaphores[resourceType].CurrentCount)
                     {
+                        // We show a message
+                        CONSOLE.WriteLine(COLOR_RESOURCE_GIVE, $"{hospital.id} - wants to share a resource : {resourceType}");
+
                         // We wait for the semaphore to be activated
                         new Thread(async () => await hospital.resourceSemaphores[resourceType].WaitAsync() ).Start();
+
+                        // We share a resource to the spare pool
+                        sharedSemaphores[resourceType].Release();
+
+                        // We show a confirm message
+                        CONSOLE.WriteLine(COLOR_RESOURCE_GIVE, $"{hospital.id} - resource {resourceType} has been shared !");
                     }
                 }
             } while (!node.isEndingNode);
 
 
             // A small message
-            CONSOLE.WriteLine(ConsoleColor.Green, $"patient {patient.id}  - {patient.name} has left the hospital {hospital.id} !");
+            CONSOLE.WriteLine(COLOR_PATIENT, $"patient {patient.id}  - {patient.name} has left the hospital {hospital.id} !");
 
             // We remove the Patient of the hospital
             hospital.removePatient(patient);

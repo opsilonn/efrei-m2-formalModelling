@@ -31,21 +31,8 @@ namespace HospitalSimulation.Models
             resources = new Dictionary<ResourceType, List<Resource>>();
             resourceSemaphores = new Dictionary<ResourceType, SemaphoreSlim>();
 
-            // We iterate through the ResourceTypes
-            ResourceTypeStuff.GetAllResourceTypes().ForEach(resourceType =>
-            {
-                // 1 - We create a row in resources (if it does not exist)
-                if (!resources.ContainsKey(resourceType))
-                {
-                    // Since it does not exist, we create the missing row
-                    resources.Add(resourceType, new List<Resource>());
-                }
-
-                // 2 - We fill the resourceSemaphores dictionary
-                // We get the number of resources to add
-                int cpt = resources[resourceType].Count;
-                resourceSemaphores.Add(resourceType, new SemaphoreSlim(cpt));
-            });
+            // We initialize the resources semaphores
+            InitializeResources();
         }
 
 
@@ -64,6 +51,39 @@ namespace HospitalSimulation.Models
             this.patients = patients;
             this.resources = resources;
             this.resourceSemaphores = resourceSemaphores;
+
+            // We initialize the resources semaphores
+            InitializeResources();
+        }
+
+
+
+
+        /// <summary>
+        /// Initialize the resources
+        /// </summary>
+        public void InitializeResources()
+        {
+            // We initialize the resources
+            resourceSemaphores = new Dictionary<ResourceType, SemaphoreSlim>();
+
+            // We iterate through the ResourceTypes
+            ResourceTypeStuff.GetAllResourceTypes().ForEach(resourceType =>
+            {
+                // 1 - We create a row in resources (if it does not exist)
+                if (!resources.ContainsKey(resourceType))
+                {
+                    // Since it does not exist, we create the missing row
+                    resources.Add(resourceType, new List<Resource>());
+                }
+
+                // 2 - We fill the resourceSemaphores dictionary
+                // We get the number of resources to add
+                int cpt = resources[resourceType].Count;
+
+                // We initialize the semaphore with this count
+                resourceSemaphores.Add(resourceType, new SemaphoreSlim(cpt));
+            });
         }
 
 
