@@ -1,0 +1,42 @@
+{
+	"id": "hosp-02",
+	"name": "Hôpital Universitaire Pitié Salpêtrière",
+	"resources": {
+		"Room": [
+			{
+				"id": "room-02-01",
+				"name": "Operation block 1",
+				"type": 0
+			},
+			{
+				"id": "room-02-03",
+				"name": "Examination room 1",
+				"type": 0
+			},
+			{
+				"id": "room-02-03",
+				"name": "Examination room 2",
+				"type": 0
+			}
+		],
+		"Nurse": [
+			{
+				"id": "nurse-02-01",
+				"name": "Anne Bony",
+				"type": 1
+			},
+			{
+				"id": "nurse-02-02",
+				"name": "Mary Read",
+				"type": 1
+			}
+		],
+		"Physician": [
+			{
+				"id": "physician-02-01",
+				"name": "Dr Strange",
+				"type": 2
+			}
+		]
+	}
+}

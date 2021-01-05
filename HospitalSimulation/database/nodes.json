@@ -4,7 +4,6 @@
 		"name": "Arriving",
 		"message": "arrives at the hospital",
 		"isStartingNode": true,
-		"resourceTypesNeeded": [ 0, 2 ],
 		"idNodeTo": "nd-2",
 		"waitMin": 1000,
 		"waitMax": 2000
